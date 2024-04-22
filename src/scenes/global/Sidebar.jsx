@@ -47,9 +47,10 @@ const Sidebar = () => {
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
+
         },
         "& .pro-icon-wrapper": {
-          backgroundColor: "transparent !important",
+          backgroundColor: "transparent !important", 
         },
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
@@ -76,9 +77,9 @@ const Sidebar = () => {
             {!isCollapsed && (
               <Box
                 display="flex"
-                justifyContent="space-between"
+                justifyContent="center"
                 alignItems="center"
-                ml="15px"
+                // ml="150px"
               >
                 {/* <Typography variant="h3" color={colors.grey[100]}>
                   ADMINS
