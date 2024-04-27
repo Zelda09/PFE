@@ -16,7 +16,7 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import LogoIcon from '../../images/logo/logo.jpg'; 
+import LogoIcon from '../../images/logo/logo.png'; 
 // import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {

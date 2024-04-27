@@ -1,6 +1,6 @@
 import { Box, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
-import { ColorModeContext  } from "../../theme";
+import { ColorModeContext ,tokens } from "../../theme";
 // import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -13,9 +13,11 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 const Topbar = ()=>{
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
+    const colors = tokens(theme.palette.mode);
   
     return (
-    <Box display="flex" justifyContent="end" p={2}>   
+    <Box sx={{background:`${colors.primary[400]} !important` , 
+   }} display="flex" justifyContent="end" p={2} boxShadow="0px 0px 40px 0px rgba(0,0,0,10)">   
         {/* ICONS */}
             {/* dark/light */}
             <IconButton onClick={colorMode.toggleColorMode}>
