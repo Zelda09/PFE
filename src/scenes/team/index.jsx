@@ -32,11 +32,7 @@ const Team =() => {
       headerName: "Phone Number",
       flex: 1,
     },
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
+   
         {field: "access",headerName: "Access Level",flex: 1,renderCell:({row:{access}})=>{
             return(
 
@@ -54,7 +50,7 @@ const Team =() => {
                 >
                     {access ==="admin" && <AdminPanelSettingsOutlinedIcon />}
                     {access ==="user" && <LockOpenOutlinedIcon />}
-                    {access ==="manager" && <SecurityOutlinedIcon />}
+                    {access ==="securite" && <SecurityOutlinedIcon />}
                     <Typography color={colors.grey[100]} sx={{ml:"5px"}}>
                         {access}
                     </Typography>
@@ -78,10 +74,11 @@ const Team =() => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: colors.blueAccent[300],
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.fixAccent[100],
+            color: ` rgb(255, 255, 255)`,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
@@ -89,7 +86,7 @@ const Team =() => {
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.fixAccent[100],
           },
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,

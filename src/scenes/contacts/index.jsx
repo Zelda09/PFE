@@ -53,10 +53,9 @@ const Contacts = () => {
   ];
 
   return (
-    <Box m="20px">
+    <Box m="15px">
       <Header
         title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
       />
       <Box
         m="40px 0 0 0"
@@ -72,22 +71,26 @@ const Contacts = () => {
             color: colors.greenAccent[300],
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.fixAccent[100],
+            color: ` rgb(255, 255, 255)`,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
             backgroundColor: colors.primary[400],
           },
-          "& .MuiDataGrid-footerContainer": {
+          "& .MuiDataGrid-footerContainer ": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.fixAccent[100],
+            color: ` rgb(255, 255, 255)`,
+
           },
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${colors.grey[100]} !important`,
+            color: `${colors.primary[100]} !important`,
           },
+          
         }}
       >
         {/* filters n stuf do a recher */}

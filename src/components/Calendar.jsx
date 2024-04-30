@@ -4,6 +4,7 @@ import { formatDate } from '@fullcalendar/core';
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import esLocale from '@fullcalendar/core/locales/fr';
 import listPlugin from "@fullcalendar/list";
 import {
   Box,
@@ -20,7 +21,7 @@ const Calendar = (isDashboard = false) => {
   const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState([]);
   const handelDateClick = (selected) => {
-    const title = prompt("Cree un evente");
+    const title = prompt("Créer un événement");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
     if (title) {
@@ -36,7 +37,7 @@ const Calendar = (isDashboard = false) => {
   const handelEventClick = (selected) => {
     if (
       window.confirm(
-        `Are you sure you want to delete the event '${selected.event.title}'`
+        `Voulez-vous vraiment supprimer l’événement ? '${selected.event.title}'`
       )
     ) {
       selected.event.remove();
@@ -47,7 +48,7 @@ const Calendar = (isDashboard = false) => {
       <Box display="flex" justifyContent="space-between">
         <Box
           flex="1 1 20%"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.fixAccent[300]}
           p="15px"
           borderRadius="4px">
           <Typography variant="h5">Evenment</Typography>
@@ -79,8 +80,12 @@ const Calendar = (isDashboard = false) => {
 
         {/* calender */}
         
-        <Box flex="1 1 100%" ml="15px">
-            <FullCalendar
+        <Box sx={{
+        "& .fc": {
+          background: `${colors.fixAccent[300]} !important`,
+        },}}
+        flex="1 1 100%" ml="15px">
+            <FullCalendar className="bodydark"
             height="75vh"
             plugins={[
                 dayGridPlugin,
@@ -88,6 +93,7 @@ const Calendar = (isDashboard = false) => {
                 interactionPlugin,
                 listPlugin,
             ]}
+            locale={esLocale}
             headerToolbar={{
                 left: 'prev,next today',
                 center: 'title',

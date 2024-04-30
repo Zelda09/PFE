@@ -3,155 +3,156 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
-import React, { useState } from 'react';
-
-
+import React, { useState } from "react";
+import DatePickerOne from "../../components/DatePickerOne.tsx";
 const Form = () => {
-    const [selectedOption, setSelectedOption] = useState('');
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-      };
+  const [selectedOption, setSelectedOption] = useState("");
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
     console.log(values);
   };
-  
 
   return (
-    <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
-
-      <Formik
-        onSubmit={handleFormSubmit}
-        initialValues={initialValues}
-        validationSchema={checkoutSchema}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleBlur,
-          handleChange,
-          handleSubmit,
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <Box
-              display="grid"
-              gap="30px"
-              gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-              sx={{
-                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-              }}
-            >
-                <TextField
-                fullWidth
-                variant="filled"
-                type="number"
-                label="ID"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.id}
-                name="id"
-                error={!!touched.id && !!errors.id}
-                helperText={touched.id && errors.id}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="First Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Last Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Email"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.email}
-                name="email"
-                error={!!touched.email && !!errors.email}
-                helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="number"
-                label="Contact Number"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.contact}
-                name="contact"
-                error={!!touched.contact && !!errors.contact}
-                helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 1"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 2"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <div>
-      <select value={selectedOption} onChange={handleOptionChange}>
-        <option value="">Select an option</option>
-        <option value="Admin">Admin</option>
-        <option value="Manager">Manager</option>
-        <option value="User">User</option>
-      </select>
-      {selectedOption && <p>Access lvl: {selectedOption}</p>}</div>
-            </Box>
-            <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
-                Create New User
-              </Button>
-            </Box>
-          </form>
-        )}
-      </Formik>
+    <Box
+      className="rounded-sm border border-stroke  shadow-default dark:border-strokedark dark:bg-boxdark"
+      m="20px">
+      <Header title="Créer un utilisateur" />
+      <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
+        <Formik
+          onSubmit={handleFormSubmit}
+          initialValues={initialValues}
+          validationSchema={checkoutSchema}>
+          {({
+            values,
+            errors,
+            touched,
+            handleBlur,
+            handleChange,
+            handleSubmit,
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <Box className="text-right p-6.5 flex-col space-y-8">
+                <div className="flex  flex-row-reverse gap-x-20	">
+                  <div className="flex-row-reverse w-full xl:w-1/2">
+                    <label className="text-right mb-2.5 block text-black dark:text-white ">
+                      الاسم
+                    </label>
+                    <div className="relative">
+                      <input
+                        placeholder="الاسم"
+                        className="text-right w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        type="text"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.id}
+                        name="id"
+                      />
+                      {touched.id && errors.id && (
+                        <div className="absolute text-red-600	">{errors.id}</div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex-row-reverse w-full xl:w-1/2">
+                    <label className="mb-2.5 block text-black dark:text-white text-right">
+                      اللقب
+                    </label>
+                    <div className="relative">
+                      <input
+                        placeholder=" اللقب"
+                        className="text-right w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        type="text"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.id}
+                        name="id"
+                      />
+                      {touched.id && errors.id && (
+                        <div className="absolute text-red-600	">{errors.id}</div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className=" mb-6 space-y-4">
+                  <label className="mb-2.5 block text-black dark:text-white ">
+                    العنوان الشخصي
+                  </label>
+                  <div className="relative">
+                    <input
+                      placeholder=" االعنوان الشخصي"
+                      className="text-right w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      type="text"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.id}
+                      name="id"
+                    />
+                    {touched.id && errors.id && (
+                      <div className="absolute text-red-600	">{errors.id}</div>
+                    )}
+                  </div>
+                </div>
+                <div className="mb-6 space-y-4">
+                  <label className="mb-2.5 block text-black dark:text-white ">
+                    الرقم الصناعي
+                  </label>
+                  <div className="relative">
+                    <input
+                      placeholder=" الرقم الصناعي"
+                      className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      type="text"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.id}
+                      name="id"
+                    />
+                    {touched.id && errors.id && (
+                      <div className="absolute text-red-600	">{errors.id}</div>
+                    )}
+                  </div>
+                </div>
+                <div className="mb-6 space-y-4">
+                  <label className="mb-2.5 block text-black dark:text-white ">
+                    الرقم الصناعي
+                  </label>
+                  <div className="relative">
+                    <input
+                      placeholder=" الرقم الصناعي"
+                      className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      type="text"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.id}
+                      name="id"
+                    />
+                    {touched.id && errors.id && (
+                      <div className="absolute text-red-600	">{errors.id}</div>
+                    )}
+                  </div>
+                </div>
+                
+                <div>
+                  <select value={selectedOption} onChange={handleOptionChange}>
+                    <option className="text-white" value="">Select an option</option>
+                    <option className="text-white" value="Admin">Admin</option>
+                    <option className="text-white" value="Manager">Manager</option>
+                    <option className="text-white" value="User">User</option>
+                  </select>
+                  {selectedOption && <p>Access lvl: {selectedOption}</p>}
+                </div>
+              </Box>
+              <Box display="flex" justifyContent="end" mt="20px">
+                <Button type="submit" color="secondary" variant="contained">
+                  Creer un user
+                </Button>
+              </Box>
+            </form>
+          )}
+        </Formik>
+      </div>
     </Box>
   );
 };
@@ -171,7 +172,7 @@ const checkoutSchema = yup.object().shape({
   address2: yup.string().required("required"),
 });
 const initialValues = {
-    id:"",
+  id: "",
   firstName: "",
   lastName: "",
   email: "",

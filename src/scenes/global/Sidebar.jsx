@@ -26,7 +26,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[100],
+        color: colors.fixAccent[100],
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -47,19 +47,20 @@ const Sidebar = () => {
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+          background: `${colors.fixAccent[200]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important", 
         },
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
+          color: colors.fixAccent[500],
         },
         // "& .pro-inner-item:hover": {
         //   color: "#868dfb !important",
         // },
         "& .pro-menu-item.active": {
-          color: "#6870fa !important",
+          color: colors.fixAccent[500],
         },
       }}
     >
@@ -71,7 +72,7 @@ const Sidebar = () => {
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 15px 10",
-              color: colors.grey[100],
+              color: colors.fixAccent[500],
             }}
           >
             {!isCollapsed && (
@@ -104,7 +105,7 @@ const Sidebar = () => {
 
             <Typography
               variant="h6"
-              color={colors.grey[300]}
+              color={colors.fixAccent[500]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Data
@@ -133,7 +134,7 @@ const Sidebar = () => {
 
             <Typography
               variant="h6"
-              color={colors.grey[300]}
+              color={colors.fixAccent[500]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Pages
@@ -162,7 +163,7 @@ const Sidebar = () => {
             
             <Typography
               variant="h6"
-              color={colors.grey[300]}
+              color={colors.fixAccent[500]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Charts

@@ -14,7 +14,7 @@ import Form from "./scenes/form";
 import Bar from "./scenes/bar";
 import Pie from "./scenes/pie";
 import Line from "./scenes/line";
-// import Geography from "./scenes/geography";
+// import Testidk from "./scenes/test/index.tsx";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -29,7 +29,7 @@ function App() {
           {window.location.pathname !== '/signin' && <Topbar setIsSidebar={setIsSidebar}/>} 
             <Routes >
               <Route path="/signin" element={<SignIn />} />
-              {/* <Route path="/" element={<Dashboard />} />
+              <Route path="/" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/contacts" element={<Contacts />} />
@@ -37,7 +37,7 @@ function App() {
               <Route path="/form" element={<Form />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/pie" element={<Pie />} />
-              <Route path="/line" element={<Line />} /> */}
+              <Route path="/line" element={<Line />} />
             </Routes>
           </main>
         </div> 
